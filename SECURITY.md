@@ -14,8 +14,6 @@ We aim to support the Moodle versions declared compatible in `version.php` (e.g.
 - We coordinate disclosure and credits with the reporter. We prefer responsible disclosure after a fixed release is available.
 
 ## Scope
-- This policy applies to the Moodle plugin code contained in this repository (`mod_chimpaigo`). 
+- This policy applies to the Moodle plugin code contained in this repository (`mod_chimpaigo`).
 - The external chimpAIgo! platform (AI engine, services, and infrastructure) is out of scope for this repository and handled under its own operational policies.
 
-## Security updates
-- Fixes are delivered via tagged releases in this repository. The packaged ZIP under `dist/` is updated accordingly.

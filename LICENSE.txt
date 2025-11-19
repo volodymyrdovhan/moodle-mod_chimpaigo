@@ -1,7 +1,0 @@
-GNU GENERAL PUBLIC LICENSE
-Version 3, 29 June 2007
-
-Este repositorio contiene archivos que integran con Moodle y, por tanto,
-deben licenciarse bajo GPLv3 o posterior.
-
-Texto completo: https://www.gnu.org/licenses/gpl-3.0.txt
