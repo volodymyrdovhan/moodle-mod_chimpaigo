@@ -40,7 +40,7 @@ class lti_type_repository {
                  WHERE ' . $DB->sql_compare_text('baseurl') . ' = ' . $DB->sql_compare_text(':baseurl') . '
                    AND ltiversion = :ltiversion';
 
-        return $DB->get_record_sql($sql, ['baseurl' => $baseurl, 'ltiversion' => $ltiversion]) ?? null;
+        return $DB->get_record_sql($sql, ['baseurl' => $baseurl, 'ltiversion' => $ltiversion]) ?: null;
     }
 
     /**
@@ -101,6 +101,6 @@ class lti_type_repository {
     public function get_type_by_id(int $typeid): ?stdClass {
         global $CFG;
         require_once($CFG->dirroot . '/mod/lti/locallib.php');
-        return lti_get_type($typeid) ?? null;
+        return lti_get_type($typeid) ?: null;
     }
 }

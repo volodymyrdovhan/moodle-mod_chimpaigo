@@ -55,6 +55,7 @@ class lti_setup_service {
         global $CFG, $DB, $SITE;
         require_once($CFG->dirroot . '/lib/moodlelib.php');
         require_once($CFG->dirroot . '/mod/lti/lib.php');
+        require_once($CFG->dirroot . '/mod/lti/locallib.php');
 
         $repo = new lti_type_repository();
         $baseurl = (new config_service())->get_base_url();
