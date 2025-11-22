@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,12 +21,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
-
-/**
- * Define all the backup steps that will be used by the backup_chimpaigo_activity_task
- */
-
 /**
  * Define the complete chimpaigo structure for backup, with file and id annotations
  */
@@ -47,7 +40,7 @@ class backup_chimpaigo_activity_structure_step extends backup_activity_structure
             'introformat',
             'typeid',
             'timecreated',
-            'timemodified'
+            'timemodified',
         ]);
 
         // Define sources.

@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,18 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Structure step to restore one chimpaigo activity
+ *
  * @package   mod_chimpaigo
  * @category  backup
  * @copyright 2025 Unbit Software S.L.
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-/**
- * Define all the restore steps that will be used by the restore_chimpaigo_activity_task
- */
-
-/**
- * Structure step to restore one chimpaigo activity
  */
 class restore_chimpaigo_activity_structure_step extends restore_activity_structure_step {
 

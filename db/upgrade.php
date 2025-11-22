@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+use mod_chimpaigo\local\lti_setup_service;
 
 /**
  * Upgrade procedure for the Chimpaigo module.
@@ -24,5 +24,13 @@ defined('MOODLE_INTERNAL') || die();
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 function xmldb_chimpaigo_upgrade($oldversion) {
+
+    if ($oldversion < 2025112200) {
+        $service = new lti_setup_service();
+        $service->ensure_lti_type();
+
+        upgrade_mod_savepoint(true, 2025112200, 'chimpaigo');
+    }
+
     return true;
 }

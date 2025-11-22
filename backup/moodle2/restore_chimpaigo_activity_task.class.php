@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -24,7 +23,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/mod/chimpaigo/backup/moodle2/restore_chimpaigo_stepslib.php'); // Because it exists (must)
+require_once($CFG->dirroot . '/mod/chimpaigo/backup/moodle2/restore_chimpaigo_stepslib.php');
 
 /**
  * chimpaigo restore task that provides all the settings and steps to perform one
@@ -33,14 +32,14 @@ require_once($CFG->dirroot . '/mod/chimpaigo/backup/moodle2/restore_chimpaigo_st
 class restore_chimpaigo_activity_task extends restore_activity_task {
 
     /**
-     * Define (add) particular settings this activity can have
+     * Define (add) particular settings this activity can have.
      */
     protected function define_my_settings() {
-        // No particular settings for this activity
+        // No particular settings for this activity.
     }
 
     /**
-     * Define (add) particular steps this activity can have
+     * Define (add) particular steps this activity can have.
      */
     protected function define_my_steps() {
         $this->add_step(new restore_chimpaigo_activity_structure_step('chimpaigo_structure', 'chimpaigo.xml'));
@@ -51,9 +50,9 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      * processed by the link decoder.
      */
     public static function define_decode_contents() {
-        $contents = array();
+        $contents = [];
 
-        $contents[] = new restore_decode_content('chimpaigo', array('intro', 'content'), 'chimpaigo');
+        $contents[] = new restore_decode_content('chimpaigo', ['intro', 'content'], 'chimpaigo');
 
         return $contents;
     }
@@ -63,13 +62,12 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      * to the activity to be executed by the link decoder.
      */
     public static function define_decode_rules() {
-        $rules = array();
+        $rules = [];
 
         $rules[] = new restore_decode_rule('CHIMPAIGOVIEWBYID', '/mod/chimpaigo/view.php?id=$1', 'course_module');
         $rules[] = new restore_decode_rule('CHIMPAIGOINDEX', '/mod/chimpaigo/index.php?id=$1', 'course');
 
         return $rules;
-
     }
 
     /**
@@ -79,7 +77,7 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      * of {@link restore_log_rule} objects.
      */
     public static function define_restore_log_rules() {
-        $rules = array();
+        $rules = [];
 
         $rules[] = new restore_log_rule('chimpaigo', 'add', 'view.php?id={course_module}', '{chimpaigo}');
         $rules[] = new restore_log_rule('chimpaigo', 'update', 'view.php?id={course_module}', '{chimpaigo}');
@@ -99,7 +97,7 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      * activity level. All them are rules not linked to any module instance (cmid = 0)
      */
     public static function define_restore_log_rules_for_course() {
-        $rules = array();
+        $rules = [];
 
         $rules[] = new restore_log_rule('chimpaigo', 'view all', 'index.php?id={course}', null);
 

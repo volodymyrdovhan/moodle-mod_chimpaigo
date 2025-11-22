@@ -23,7 +23,6 @@
  */
 
 namespace mod_chimpaigo\event;
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * The mod_chimpaigo course module viewed event class.

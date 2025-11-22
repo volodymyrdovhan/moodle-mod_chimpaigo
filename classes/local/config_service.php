@@ -34,7 +34,7 @@ class config_service {
      * @return string
      */
     public function get_base_url(): string {
-        $config_url = (string) get_config('mod_chimpaigo', 'baseurl');
-        return !empty($config_url) ? $config_url : self::DEFAULT_BASE_URL;
+        $configurl = (string) get_config('mod_chimpaigo', 'baseurl');
+        return !empty($configurl) ? $configurl : self::DEFAULT_BASE_URL;
     }
 }
