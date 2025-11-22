@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Restore task for the Chimpaigo activity.
+ *
  * @package   mod_chimpaigo
  * @category  backup
  * @copyright 2025 Unbit Software S.L.
@@ -30,7 +32,6 @@ require_once($CFG->dirroot . '/mod/chimpaigo/backup/moodle2/restore_chimpaigo_st
  * complete restore of the activity
  */
 class restore_chimpaigo_activity_task extends restore_activity_task {
-
     /**
      * Define (add) particular settings this activity can have.
      */
@@ -51,7 +52,6 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      */
     public static function define_decode_contents() {
         $contents = [];
-
         $contents[] = new restore_decode_content('chimpaigo', ['intro', 'content'], 'chimpaigo');
 
         return $contents;
@@ -63,7 +63,6 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      */
     public static function define_decode_rules() {
         $rules = [];
-
         $rules[] = new restore_decode_rule('CHIMPAIGOVIEWBYID', '/mod/chimpaigo/view.php?id=$1', 'course_module');
         $rules[] = new restore_decode_rule('CHIMPAIGOINDEX', '/mod/chimpaigo/index.php?id=$1', 'course');
 
@@ -72,9 +71,9 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
 
     /**
      * Define the restore log rules that will be applied
-     * by the {@link restore_logs_processor} when restoring
+     * by the {@see \restore_logs_processor} when restoring
      * chimpaigo logs. It must return one array
-     * of {@link restore_log_rule} objects.
+     * of {@see \restore_log_rule} objects.
      */
     public static function define_restore_log_rules() {
         $rules = [];
@@ -88,9 +87,9 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
 
     /**
      * Define the restore log rules that will be applied
-     * by the {@link restore_logs_processor} when restoring
+     * by the {@see \restore_logs_processor} when restoring
      * course logs. It must return one array
-     * of {@link restore_log_rule} objects
+     * of {@see \restore_log_rule} objects
      *
      * Note this rules are applied when restoring course logs
      * by the restore final task, but are defined here at

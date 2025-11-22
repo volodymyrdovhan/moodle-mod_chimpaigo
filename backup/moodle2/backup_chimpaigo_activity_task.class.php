@@ -31,7 +31,6 @@ require_once($CFG->dirroot . '/mod/chimpaigo/backup/moodle2/backup_chimpaigo_ste
  * Provides the steps to perform one complete backup of the Chimpaigo instance
  */
 class backup_chimpaigo_activity_task extends backup_activity_task {
-
     /**
      * No specific settings for this activity
      */

@@ -22,6 +22,8 @@ use mod_chimpaigo\local\lti_setup_service;
  * @package    mod_chimpaigo
  * @copyright  2025 Unbit Software S.L.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @param int $oldversion the version we are upgrading from
+ * @return bool
  */
 function xmldb_chimpaigo_upgrade($oldversion) {
 

@@ -26,7 +26,6 @@ use stdClass;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class lti_type_repository {
-
     /**
      * Find an LTI type by base URL and version using text-safe comparison.
      *

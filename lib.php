@@ -105,7 +105,6 @@ function chimpaigo_delete_instance($id) {
  * @param  stdClass $context    context object
  */
 function chimpaigo_view($chimpaigo, $course, $cm, $context): void {
-
     // Trigger course_module_viewed event.
     $params = [
         'context' => $context,
