@@ -22,9 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use mod_chimpaigo\local\config_service;
-
-defined('MOODLE_INTERNAL') || die();
+use mod_chimpaigo\local\lti_setup_service;
 
 /**
  * List of features supported in Chimpaigo module.
@@ -34,12 +32,18 @@ defined('MOODLE_INTERNAL') || die();
  */
 function chimpaigo_supports($feature) {
     switch ($feature) {
-        case FEATURE_MOD_INTRO: return true;
-        case FEATURE_COMPLETION_TRACKS_VIEWS: return true;
-        case FEATURE_SHOW_DESCRIPTION: return true;
-        case FEATURE_GRADE_HAS_GRADE: return false;
-        case FEATURE_BACKUP_MOODLE2: return true;
-        default: return null;
+        case FEATURE_MOD_INTRO:
+            return true;
+        case FEATURE_COMPLETION_TRACKS_VIEWS:
+            return true;
+        case FEATURE_SHOW_DESCRIPTION:
+            return true;
+        case FEATURE_GRADE_HAS_GRADE:
+            return false;
+        case FEATURE_BACKUP_MOODLE2:
+            return true;
+        default:
+            return null;
     }
 }
 
@@ -51,33 +55,14 @@ function chimpaigo_supports($feature) {
  * @return int The id of the newly inserted Chimpaigo record
  */
 function chimpaigo_add_instance($data, $mform) {
-    global $DB, $CFG;
-    require_once($CFG->dirroot . '/mod/lti/lib.php');
+    global $DB;
 
     $data->timecreated = time();
     $data->timemodified = time();
 
-    // Ensure LTI 1.3 type by baseurl+ltiversion.
-    $baseurl = (new config_service())->get_base_url();
-    $type = $DB->get_record('lti_types', ['baseurl' => $baseurl, 'ltiversion' => '1.3.0']);
-
-    if ($type) {
-        $data->typeid = $type->id;
-    } else {
-        $type = (object)[
-            'name'          => 'chimpAIgo!',
-            'baseurl'       => $baseurl,
-            'description'   => 'Generador de quizzes por IA',
-            'ltiversion'    => '1.3.0',
-            'course'        => 1,
-            'state'         => 1,
-            'coursevisible' => 2,
-            'visible'       => 1,
-            'timecreated'   => time(),
-            'timemodified'  => time()
-        ];
-        $data->typeid = $DB->insert_record('lti_types', $type);
-    }
+    // Ensure the LTI type exists and reuse it.
+    $ltitype = (new lti_setup_service())->ensure_lti_type();
+    $data->typeid = $ltitype->id;
 
     return $DB->insert_record('chimpaigo', $data);
 }
@@ -120,11 +105,10 @@ function chimpaigo_delete_instance($id) {
  * @param  stdClass $context    context object
  */
 function chimpaigo_view($chimpaigo, $course, $cm, $context): void {
-
     // Trigger course_module_viewed event.
     $params = [
         'context' => $context,
-        'objectid' => $chimpaigo->id
+        'objectid' => $chimpaigo->id,
     ];
 
     $event = \mod_chimpaigo\event\course_module_viewed::create($params);

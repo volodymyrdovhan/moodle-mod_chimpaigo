@@ -24,7 +24,6 @@ namespace mod_chimpaigo\local;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class config_service {
-
     /** @var string Default base URL for the Chimpaigo module. */
     public const DEFAULT_BASE_URL = 'https://www.chimpaigo.com/edu/moodle/lti/launch.aspx';
 
@@ -34,7 +33,7 @@ class config_service {
      * @return string
      */
     public function get_base_url(): string {
-        $config_url = (string) get_config('mod_chimpaigo', 'baseurl');
-        return !empty($config_url) ? $config_url : self::DEFAULT_BASE_URL;
+        $configurl = (string) get_config('mod_chimpaigo', 'baseurl');
+        return !empty($configurl) ? $configurl : self::DEFAULT_BASE_URL;
     }
 }

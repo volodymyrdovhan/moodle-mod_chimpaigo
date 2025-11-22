@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -32,7 +31,6 @@ require_once($CFG->dirroot . '/mod/chimpaigo/backup/moodle2/backup_chimpaigo_ste
  * Provides the steps to perform one complete backup of the Chimpaigo instance
  */
 class backup_chimpaigo_activity_task extends backup_activity_task {
-
     /**
      * No specific settings for this activity
      */
@@ -55,13 +53,13 @@ class backup_chimpaigo_activity_task extends backup_activity_task {
     public static function encode_content_links($content) {
         global $CFG;
 
-        $base = preg_quote($CFG->wwwroot,"/");
+        $base = preg_quote($CFG->wwwroot, "/");
 
-        $search="/(".$base."\/mod\/chimpaigo\/index.php\?id\=)([0-9]+)/";
-        $content= preg_replace($search, '$@CHIMPAIGOINDEX*$2@$', $content);
+        $search = "/(" . $base . "\/mod\/chimpaigo\/index.php\?id\=)([0-9]+)/";
+        $content = preg_replace($search, '$@CHIMPAIGOINDEX*$2@$', $content);
 
-        $search="/(".$base."\/mod\/chimpaigo\/view.php\?id\=)([0-9]+)/";
-        $content= preg_replace($search, '$@CHIMPAIGOVIEWBYID*$2@$', $content);
+        $search = "/(" . $base . "\/mod\/chimpaigo\/view.php\?id\=)([0-9]+)/";
+        $content = preg_replace($search, '$@CHIMPAIGOVIEWBYID*$2@$', $content);
 
         return $content;
     }

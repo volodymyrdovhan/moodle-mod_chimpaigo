@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,21 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Structure step to restore one chimpaigo activity
+ *
  * @package   mod_chimpaigo
  * @category  backup
  * @copyright 2025 Unbit Software S.L.
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-/**
- * Define all the restore steps that will be used by the restore_chimpaigo_activity_task
- */
-
-/**
- * Structure step to restore one chimpaigo activity
- */
 class restore_chimpaigo_activity_structure_step extends restore_activity_structure_step {
-
     /**
      * Define the structure of the chimpaigo activity
      *
@@ -49,11 +41,16 @@ class restore_chimpaigo_activity_structure_step extends restore_activity_structu
      * @return void
      */
     protected function process_chimpaigo($data) {
-        global $DB;
+        global $DB, $CFG;
+        require_once($CFG->dirroot . '/mod/chimpaigo/classes/local/lti_setup_service.php');
 
         $data = (object)$data;
         $oldid = $data->id;
         $data->course = $this->get_courseid();
+
+        // Ensure the LTI type exists in the target site and relink to it.
+        $ltitype = (new \mod_chimpaigo\local\lti_setup_service())->ensure_lti_type();
+        $data->typeid = $ltitype->id;
 
         // Insert the chimpaigo record.
         $newitemid = $DB->insert_record('chimpaigo', $data);
