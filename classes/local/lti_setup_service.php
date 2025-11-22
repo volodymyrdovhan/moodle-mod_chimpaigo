@@ -184,6 +184,8 @@ class lti_setup_service {
             'organizationid_default'          => 'SITEHOST',
             'organizationurl'                 => '',
             'publickey'                       => self::DEFAULT_PUBLIC_KEY,
+            'toolurl'                         => $baseurl,
+            'securetoolurl'                   => $baseurl,
             'redirectionuris'                 => $baseurl,
             'sendemailaddr'                   => '1',
             'sendname'                        => '1',

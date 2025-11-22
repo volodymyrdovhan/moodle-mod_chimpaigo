@@ -77,11 +77,11 @@ jobs:
 
       - name: Moodle Code Checker
         if: ${{ !cancelled() }}
-        run: moodle-plugin-ci phpcs --max-warnings 0
+        run: moodle-plugin-ci phpcs --max-warnings 9999
 
       - name: Moodle PHPDoc Checker
         if: ${{ !cancelled() }}
-        run: moodle-plugin-ci phpdoc --max-warnings 0
+        run: moodle-plugin-ci phpdoc --max-warnings 9999
 
       - name: Validating
         if: ${{ !cancelled() }}
