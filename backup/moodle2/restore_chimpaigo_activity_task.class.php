@@ -52,7 +52,7 @@ class restore_chimpaigo_activity_task extends restore_activity_task {
      */
     public static function define_decode_contents() {
         $contents = [];
-        $contents[] = new restore_decode_content('chimpaigo', ['intro', 'content'], 'chimpaigo');
+        $contents[] = new restore_decode_content('chimpaigo', ['intro'], 'chimpaigo');
 
         return $contents;
     }

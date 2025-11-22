@@ -28,7 +28,6 @@ use stdClass;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class lti_setup_service {
-
     /** @var string */
     private const DEFAULT_LOGIN_URL = 'https://www.chimpaigo.com/edu/moodle/lti/login.aspx';
 
