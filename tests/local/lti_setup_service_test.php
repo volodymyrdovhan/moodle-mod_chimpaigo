@@ -35,7 +35,7 @@ class mod_chimpaigo_lti_setup_service_test extends advanced_testcase {
     /**
      * Test that the LTI type is created and is idempotent.
      *
-     * @covers mod_chimpaigo\local\lti_setup_service::ensure_lti_type
+     * @covers \mod_chimpaigo\local\lti_setup_service::ensure_lti_type
      */
     public function test_creates_lti_type_and_is_idempotent(): void {
         $this->resetAfterTest(true);
@@ -56,10 +56,10 @@ class mod_chimpaigo_lti_setup_service_test extends advanced_testcase {
     /**
      * Test that missing config entries are readded.
      *
-     * @covers mod_chimpaigo\local\lti_setup_service::ensure_lti_type
-     * @covers mod_chimpaigo\local\lti_type_repository::get_config_map
-     * @covers mod_chimpaigo\local\lti_type_repository::insert_config_if_missing
-     * @covers mod_chimpaigo\local\lti_setup_service::ensure_config
+     * @covers \mod_chimpaigo\local\lti_setup_service::ensure_lti_type
+     * @covers \mod_chimpaigo\local\lti_type_repository::get_config_map
+     * @covers \mod_chimpaigo\local\lti_type_repository::insert_config_if_missing
+     * @covers \mod_chimpaigo\local\lti_setup_service::ensure_config
      */
     public function test_missing_config_entries_are_readded(): void {
         global $DB;

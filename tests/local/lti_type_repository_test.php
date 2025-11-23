@@ -35,8 +35,8 @@ class mod_chimpaigo_lti_type_repository_test extends advanced_testcase {
     /**
      * Test that the repository reads and restores missing config.
      *
-     * @covers mod_chimpaigo\local\lti_type_repository::get_config_map
-     * @covers mod_chimpaigo\local\lti_type_repository::insert_config_if_missing
+     * @covers \mod_chimpaigo\local\lti_type_repository::get_config_map
+     * @covers \mod_chimpaigo\local\lti_type_repository::insert_config_if_missing
      */
     public function test_repository_reads_and_restores_missing_config(): void {
         global $DB;
@@ -68,8 +68,8 @@ class mod_chimpaigo_lti_type_repository_test extends advanced_testcase {
     /**
      * Test that the repository can find and get a type by id.
      *
-     * @covers mod_chimpaigo\local\lti_type_repository::find_by_baseurl_and_version
-     * @covers mod_chimpaigo\local\lti_type_repository::get_type_by_id
+     * @covers \mod_chimpaigo\local\lti_type_repository::find_by_baseurl_and_version
+     * @covers \mod_chimpaigo\local\lti_type_repository::get_type_by_id
      */
     public function test_find_and_get_by_id(): void {
         $this->resetAfterTest(true);

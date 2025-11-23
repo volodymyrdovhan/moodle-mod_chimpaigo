@@ -34,8 +34,8 @@ class mod_chimpaigo_config_service_test extends advanced_testcase {
     /**
      * Test that the default base URL is used when no configuration is set.
      *
-     * @covers mod_chimpaigo\local\config_service::get_base_url
-     * @covers mod_chimpaigo\local\config_service::DEFAULT_BASE_URL
+     * @covers \mod_chimpaigo\local\config_service::get_base_url
+     * @covers \mod_chimpaigo\local\config_service::DEFAULT_BASE_URL
      */
     public function test_default_base_url_used_when_not_configured(): void {
         $this->resetAfterTest(true);
@@ -48,8 +48,8 @@ class mod_chimpaigo_config_service_test extends advanced_testcase {
     /**
      * Test that the configured base URL is returned when it is set.
      *
-     * @covers mod_chimpaigo\local\config_service::get_base_url
-     * @covers mod_chimpaigo\local\config_service::DEFAULT_BASE_URL
+     * @covers \mod_chimpaigo\local\config_service::get_base_url
+     * @covers \mod_chimpaigo\local\config_service::DEFAULT_BASE_URL
      */
     public function test_configured_base_url_is_returned(): void {
         $this->resetAfterTest(true);
