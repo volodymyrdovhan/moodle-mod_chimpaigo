@@ -25,8 +25,10 @@ use mod_chimpaigo\local\lti_setup_service;
  */
 function xmldb_chimpaigo_install() {
 
-    $service = new lti_setup_service();
-    $service->ensure_lti_type();
+    if (!defined('PHPUNIT_TEST') || !PHPUNIT_TEST) {
+        $service = new lti_setup_service();
+        $service->ensure_lti_type();
+    }
 
     return true;
 }

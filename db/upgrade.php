@@ -27,11 +27,11 @@ use mod_chimpaigo\local\lti_setup_service;
  */
 function xmldb_chimpaigo_upgrade($oldversion) {
 
-    if ($oldversion < 2025112200) {
+    if ($oldversion < 2025112301) {
         $service = new lti_setup_service();
         $service->ensure_lti_type();
 
-        upgrade_mod_savepoint(true, 2025112200, 'chimpaigo');
+        upgrade_mod_savepoint(true, 2025112301, 'chimpaigo');
     }
 
     return true;
