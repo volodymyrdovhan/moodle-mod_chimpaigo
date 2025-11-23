@@ -121,3 +121,19 @@ function chimpaigo_view($chimpaigo, $course, $cm, $context): void {
     $completion = new completion_info($course);
     $completion->set_module_viewed($cm);
 }
+
+/**
+ * Hide Chimpaigo from the activity chooser.
+ *
+ * @param \core_course\local\entity\content_item $contentitem
+ * @param stdClass $user
+ * @param stdClass $course
+ * @return array
+ */
+function mod_chimpaigo_get_course_content_items(
+    core_course\local\entity\content_item $contentitem,
+    stdClass $user,
+    stdClass $course
+): array {
+    return [];
+}

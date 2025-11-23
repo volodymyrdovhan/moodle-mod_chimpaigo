@@ -26,10 +26,7 @@ use mod_chimpaigo\local\config_service;
 
 defined('MOODLE_INTERNAL') || die();
 
-if ($hassiteconfig) {
-    $settings = new admin_settingpage('modsettingchimpaigo', get_string('pluginname', 'mod_chimpaigo'));
-    $ADMIN->add('modsettings', $settings);
-
+if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configtext(
         'mod_chimpaigo/baseurl',
         get_string('baseurl_setting_label', 'mod_chimpaigo'),

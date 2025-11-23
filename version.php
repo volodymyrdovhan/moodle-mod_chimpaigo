@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_chimpaigo';
-$plugin->version   = 2025112200;
-$plugin->release   = '1.1.0';
+$plugin->version   = 2025112301;
+$plugin->release   = '1.1.2';
 $plugin->requires  = 2024042200; // Moodle 4.4 or later.
 $plugin->maturity  = MATURITY_STABLE;
